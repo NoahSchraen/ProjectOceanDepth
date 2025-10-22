@@ -1,0 +1,59 @@
+Fonctionalitées actuelles :
+
+- Étape 1 - Génération de Créatures Marines :
+
+Fichier creatures.c qui contient le code pour la configuration des créatures par zones
+Fichier creature.h qui contient la structure de mon fichier c
+
+Dans le main : Pour le moment que la zone 1 gérer (voir pour créer une fonction pour simplifier le code )
+Le monstre rencontré dans la zone 1 est aleatoire
+
+- Étape 2 - Système d'Attaque du Plongeur
+
+Fichier joueur.c qui contient le code pour la configuration du joueur
+Fichier joueur.h qui contient la structure de mon fichier c
+
+dans le main : le joueur est initialiser, il entre la profondeur ou il souhaite aller (pour le moment comprise entre 0 et 50 pour la zone 1)
+il attaque en fonction de sont niveau de fatigue
+
+
+-Étape 3 - Attaque des Créatures Marines
+
+un créature possède 3 type d'attaques, pour le moment gerer aléatoirement,
+affichage du combat :
+---------------------------------------------Combat Sous Marin ----------------------------------------------
+Vous attaquez le Tortue Marine
+Plongeur                  VS                          Tortue Marine
+Vos statistiques en debut de tour :
+Votre vie : 300 / 300
+Votre niveau d'oxygene : 100 / 100
+Votre niveau de fatigue : 0
+La creature a utilis├® sont attaque minimale vous perdez : 4 points de vie
+Vous riposter 1
+-2 en oxygene (action de combat)
+---------------------------------------------------------
+
+Affichage des statistiques du joueur avant le combat :
+Vos statistiques :
+Votre vie : 296 / 300
+Votre niveau d'oxygene : 98 / 100
+La creature a utilis├® sont attaque minimale vous perdez : 4 points de vie
+Vous riposter 1
+-2 en oxygene (action de combat)
+
+affichage par tour :
+Vos statistiques :
+Votre vie : 292 / 300
+Votre niveau d'oxygene : 96 / 100
+La creature a utilis├® sont attaque minimale vous perdez : 4 points de vie
+Vous riposter 1
+-2 en oxygene (action de combat)
+
+et affichage en fin de combat :
+Vos statistiques en fin de tour :
+Votre vie : 288 / 300
+Votre niveau d'oxygene : 94 / 100
+Votre niveau de fatigue : 1
+Le tour se termine, vous ├¬tes encore en vie.
+
+les affichages peuvent être modifier (j'avoue c'est pas très beau )
