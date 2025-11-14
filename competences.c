@@ -18,8 +18,11 @@ typedef struct {
 }Competences;
 
 
-Competences  **competence_dispo() {
+Competences  *competence_dispo() {
     srand(time(NULL)); //Initialisation rand
+
+    Competences *competence_dispo = malloc(sizeof(Competences)*4) ; //allocation dynamique mémoire des compétences
+
     Competences competences[4] ={
         {1, "Apnée Prolongée", 0, 4, 0, 0 },
         {2, "Décharge de Taser", 18, 0, rand()%30+20, 2 }, //degats aléatoire entre 20-30
@@ -27,10 +30,8 @@ Competences  **competence_dispo() {
         {4, "Palmage Rapide", 22, 0, 0, 1}
     };
 
-    Competences **competence_dispo = malloc(sizeof(Competences)*4) ; //allocation dynamique mémoire des compétences
-
-    return competence_dispo;
-    free(competence_dispo);
+    return competences;
+    free(competence_dispo) ;
 }
 
 #endif

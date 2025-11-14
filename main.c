@@ -24,7 +24,8 @@ int main(void) {
     //Créatures marines existantes par zones :
     CreatureMarine **creatures = creature_marine();
 
-    Competences **competences = competence_dispo();
+    //Compétences du joueur
+    Competences *competences = competence_dispo();
 
 
     printf("----------------------------------------\n");
@@ -65,10 +66,7 @@ int main(void) {
 
         if (choix == 1){
             for (int i = 0; i < 4; i++) {
-                printf("%d:", i+1) ;
-                for (int j = 0; j < 4; j++) {
-                    printf("%s ",  competences[i][j].nom) ;//affiche le nom des compétences
-                }
+                printf("%d: %s ", competences[i].numero,  competences[i].nom) ;//affiche le nom des compétences
             }
 
             //Differents effets des competences
