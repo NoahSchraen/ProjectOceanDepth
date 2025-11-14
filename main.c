@@ -4,6 +4,7 @@
 #include <time.h>
 #include "creature.h"
 #include "joueur.h"
+#include "competences.h"
 
 
 int main(void) {
@@ -20,8 +21,10 @@ int main(void) {
     int nbgenAttaques2 = rand()%3+1;
     int nbgenAttaques3 = rand()%2+1;
 
-    //Créatures marines existantes pas zones :
+    //Créatures marines existantes par zones :
     CreatureMarine **creatures = creature_marine();
+
+    Competences **competences = competence_dispo();
 
 
     printf("----------------------------------------\n");
@@ -55,7 +58,41 @@ int main(void) {
     printf("---------------------------------------------Combat Sous Marin ---------------------------------------------- \n");
 
     if (profondeur >= 0 && profondeur < 50) {
-        printf("Vous attaquez le %s \n", creatures[0][nbgen-1].nom);
+        printf("%s vous attaque ! Que voulez vous faire ? \n", creatures[0][nbgen-1].nom);
+        printf("1: Competences       2: Attaque normale \n") ;
+        int choix ;
+        scanf("%d", &choix); //recupere le choix du joueur
+
+        if (choix == 1){
+            for (int i = 0; i < 4; i++) {
+                printf("%d:", i+1) ;
+                for (int j = 0; j < 4; j++) {
+                    printf("%s ",  competences[i][j].nom) ;//affiche le nom des compétences
+                }
+            }
+
+            //Differents effets des competences
+            int compChoisie = 0;
+
+            scanf("%d", &compChoisie) ;
+            if (compChoisie == 1) { //Regeneration d'oxygene (Apnée Prolongée)
+                p.niveau_oxygene + 20;
+                printf("Oxygene regenere ! \n Niveau Oxygene : %d", p.niveau_oxygene);
+            }
+            else if (compChoisie == 2) { //Décharge de Taser
+                p.niveau_oxygene - 18 ;
+                p.points_de_vie - rand()%30+20 ; // degats entre 20-30 sur toutes les créatures donc plongeur compris
+                creatures[0][nbgen-1].points_de_vie_actuels - rand()%30+20 ;
+            }
+            else if (compChoisie == 3) {//Attaque Double
+                p.niveau_oxygene - 15 ;
+                creatures[0][nbgen-1].points_de_vie_actuels - rand()%15+10 ;
+            }
+            else if (compChoisie == 4) {//Palmage Rapide
+                p.niveau_oxygene - 22 ;
+                creatures[0][nbgen-1].vitesse-2;
+            }
+        }
         printf("Plongeur                  VS                          %s \n", creatures[0][nbgen-1].nom);
         printf("Vos statistiques en debut de tour : \n");
         printf("Votre vie : %d / %d \n",p.points_de_vie,p.points_de_vie_max);
@@ -107,14 +144,14 @@ int main(void) {
                 nbAttaques--;
                 switch (nbgenAttaques2) {
                     case 1:
-                        printf("La creature a utilisé sont attaque minimale vous perdez : %d points de vie \n",creatures[0][nbgen-1].attaque_minimale);
+                        printf("La creature a utilise sont attaque minimale vous perdez : %d points de vie \n",creatures[0][nbgen-1].attaque_minimale);
                         printf("Vous riposter %d \n", degats);
                         p.points_de_vie = p.points_de_vie - creatures[0][nbgen-1].attaque_minimale;
                         printf("-2 en oxygene (action de combat)\n");
                         p.niveau_oxygene = p.niveau_oxygene - 2;
                         break;
                     case 2:
-                        printf("La creature a utilisé sont attaque maximale vous perdez : %d points de vie \n",creatures[0][nbgen-1].attaque_maximale);
+                        printf("La creature a utilise sont attaque maximale vous perdez : %d points de vie \n",creatures[0][nbgen-1].attaque_maximale);
                         printf("Vous riposter %d \n", degats);
                         p.points_de_vie = p.points_de_vie - creatures[0][nbgen-1].attaque_maximale;
                         printf("-2 en oxygene (action de combat)\n");
@@ -159,7 +196,7 @@ int main(void) {
     } else if (p.niveau_oxygene <= 0) {
         printf("Vous n'avez plus d'oxygène !\n");
     } else {
-        printf("Le tour se termine, vous êtes encore en vie.\n");
+        printf("Le tour se termine, vous etes encore en vie.\n");
     }
     free(creatures);
     return 0;

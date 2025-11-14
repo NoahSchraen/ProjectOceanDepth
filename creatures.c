@@ -22,7 +22,7 @@ typedef struct {
 } CreatureMarine;
 
 CreatureMarine **creature_marine() {
-    //Créatures marines existantes pas zones :
+    //Créatures marines existantes par zones :
     CreatureMarine zone1[4] = {
         {1, "Poisson Clown", 30, 30, 2, 5, 1, 8, "aucun", 1, 1},
         {2, "Tortue Marine", 50, 50, 4, 8, 5, 4, "aucun", 1, 1},
