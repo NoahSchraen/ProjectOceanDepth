@@ -10,5 +10,5 @@ typedef struct {
     int creatureAffecte;
 }Competences;
 
-Competences **competence_dispo();
+Competences *competence_dispo();
 #endif //COMPETENCES_H
