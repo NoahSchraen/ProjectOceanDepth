@@ -26,7 +26,8 @@ CreatureMarine **creature_marine() {
     CreatureMarine zone1[4] = {
         {1, "Poisson Clown", 30, 30, 2, 5, 1, 8, "aucun", 1, 1},
         {2, "Tortue Marine", 50, 50, 4, 8, 5, 4, "aucun", 1, 1},
-        {3, "Meduse", 25, 25, 3, 6, 2, 6, "paralysie", 1, 1}
+        {3, "Meduse", 25, 25, 3, 6, 2, 6, "paralysie", 1, 1},
+        {4, "Poisson Lion", 20, 20, 2, 3, 1, 7, "poison",1,1}
 
     };
 
@@ -38,7 +39,7 @@ CreatureMarine **creature_marine() {
 
     CreatureMarine zone3[4] = {
         {7, "Requin Marteau Abyssal", 160, 160, 15, 25, 10, 6, "aucun", 1, 3},
-        {8, "Calmar Géant", 180, 180, 12, 28, 8, 7, "paralysie", 1, 3},
+        {8, "Calmar Geant", 180, 180, 12, 28, 8, 7, "paralysie", 1, 3},
         {9, "Dragon des Abysses", 220, 220, 18, 35, 12, 9, "poison", 1, 3}
     };
 

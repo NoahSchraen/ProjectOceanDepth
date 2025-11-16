@@ -22,8 +22,8 @@ Competences  *competence_dispo() {
     srand(time(NULL)); //Initialisation rand
 
     Competences competences[4] = {
-        {1, "Apnée Prolongée", 0, 4, 0, 0},
-        {2, "Décharge de Taser", 18, 0, rand()%30 + 20, 2},
+        {1, "Apnee Prolongee", 0, 4, 0, 0},
+        {2, "Decharge de Taser", 18, 0, rand()%30 + 20, 2},
         {3, "Attaque Double", 15, 1, 0, 1},
         {4, "Palmage Rapide", 22, 0, 0, 1}
     };
@@ -31,7 +31,7 @@ Competences  *competence_dispo() {
     Competences *competences_dispo = malloc(sizeof(Competences) * 4);
 
     for (int i = 0; i < 4; i++) {
-        competences[i] = competences[i];
+        competences_dispo[i] = competences[i];
     }
 
     return competences_dispo;
